@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            overflow-x: hidden; /* Запрещаем горизонтальную прокрутку */
+        }
+        .top-banner {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1001; /* Увеличен z-index для верхнего баннера */
+        }
+        .top-banner span {
+            font-size: 1.5em;
+        }
+        .content {
+            max-width: 900px;
+            margin: 100px auto 20px auto; /* Добавлен верхний отступ для контента */
+            padding: 20px;
+            padding-right: 20px; /* Добавлен правый отступ для контента */
+            padding-left: 20px; /* Добавлен левый отступ для контента */
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .photo-gallery img {
+            width: 450px;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .photo-gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .contact-info, .bio {
+            margin: 20px 0;
+        }
+        .contact-info h2, .bio h2 {
+            font-size: 1.8em;
+            border-bottom: 3px solid #3b5998;
+            display: inline-block;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+        .contact-info p, .bio p {
+            line-height: 1.8;
+        }
+        .contact-info p {
+            font-size: 1.2em;
+        }
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #3b5998;
+        }
+        .contact-info i {
+            margin-right: 8px;
+        }
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        #modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 20px;
+        }
+        #modal.close {
+            display: none;
+        }
+        #map {
+            height: 300px; /* Высота карты */
+            width: 100%; /* Ширина карты */
+            margin-bottom: 20px; /* Отступ снизу */
+        }
+        .footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 3px 0;
+            position: relative;
+            width: 100%;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        .footer-item {
+            margin: 10px;
+            min-width: 200px;
+        }
+        .footer-title {
+            font-size: 1.0em;
+            margin-bottom: 15px;
+        }
+        .footer-text {
+            font-size: 0.8em; /* Базовый размер шрифта для текста в футере */
+        }
+        .footer-item p, .footer-item a {
+            margin: 8px 0;
+            color: white;
+            text-decoration: none;
+        }
+        .footer-item a:hover {
+            text-decoration: underline;
+        }
+        .footer-item i {
+            margin-right: 8px;
+        }
+        .footer-item .footer-title {
+            font-size: 1.2em; /* Увеличиваем размер шрифта */
+            font-weight: bold; /* Делаем текст жирным */
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-banner">
+        <span>Արթուր Հարությունյան</span>
+    </div>
+    
+    <div class="content">
+        <div class="photo-gallery">
+            <img src="photo1.jpg" alt="Photo 1" onclick="openModal(this.src)">
+            <img src="photo2.jpg" alt="Photo 2" onclick="openModal(this.src)">
+            <img src="photo3.jpg" alt="Photo 3" onclick="openModal(this.src)">
+            <img src="photo4.jpg" alt="Photo 3" onclick="openModal(this.src)">
+        </div>
+        <div class="contact-info">
+            <h2>Կոնտակտներ</h2>
+            <p><i class="fas fa-envelope"></i>Email: <a href="mailto:artur940617@gmail.com">artur940617@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i>Телефон: <a href="tel:+37477291214">+37477291214</a></p>
+            <p><i class="fab fa-instagram"></i>Instagram: <a href="https://www.instagram.com/artur_harutyunyan_94" target="_blank">@artur_harutyunyan_94</a></p>
+        </div>
+        <div class="bio">
+            <h2>Մեր մասին</h2>
+            <p>Ատամնատեխնիկական աշխատանքների Կատարում։
+                Ինթչպես նաև NFC-ով հագեցած այցեքարտերի պատրաստում։
+            </p>
+        </div>
+        <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
+            <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
+            <script>
+                (function () {
+                    var setting = {
+                        "query": "32 Erebuni Street, Ереван, Армения",
+                        "width": "100%",
+                        "height": 300,
+                        "satellite": false,
+                        "zoom": 12,
+                        "placeId": "ChIJ11aQp-27akARxYLRgNgVctY",
+                        "cid": "0xd67215d880d182c5",
+                        "coords": [40.1412026, 44.53001330000001],
+                        "cityUrl": "/armenia/yerevan-19185",
+                        "cityAnchorText": "Карта [CITY1], Yerevan, Армения",
+                        "lang": "ru",
+                        "queryString": "32 Erebuni Street, Ереван, Армения",
+                        "centerCoord": [40.1412026, 44.53001330000001],
+                        "id": "map-9cd199b9cc5410cd3b1ad21cab2e54d3",
+                        "embed_id": "1115012"
+                    };
+                    var d = document;
+                    var s = d.createElement('script');
+                    s.src = 'https://1map.com/js/script-for-user.js?embed_id=1115012';
+                    s.async = true;
+                    s.onload = function (e) {
+                        window.OneMap.initMap(setting);
+                    };
+                    var to = d.getElementsByTagName('script')[0];
+                    to.parentNode.insertBefore(s, to);
+                })();
+            </script>
+            <a href="https://1map.com/ru/map-embed">1 Map</a>
+        </div>
+    </div>
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="" alt="Modal Image">
+    </div>
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-item">
+                <div class="footer-title">Contact us</div>
+                <p class="footer-text"><i class="fab fa-instagram"></i>Instagram: <a href="https://www.instagram.com/nfc_leap" target="_blank">@nfc_leap</a></p>
+                <p class="footer-text"><i class="fas fa-envelope"></i>Email: <a href="mailto:artur940617@gmail.com">artur940617@gmail.com</a></p>
+                <p class="footer-text"><i class="fas fa-phone"></i>Телефон: <a href="tel:+37477291214">+37477291214</a></p>
+            </div>
+            <div class="footer-item">
+                <div class="footer-title">Company</div>
+                <p class="footer-text">© 2024 NFC Leap</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            var header = document.getElementById("header");
+            if (window.pageYOffset > 80) {
+                header.style.left = "0";
+            } else {
+                header.style.left = "-300px";
+            }
+        }
+
+        function openModal(src) {
+            document.getElementById('modal').style.display = 'flex';
+            document.getElementById('modal-img').src = src;
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
