@@ -13,7 +13,6 @@
             padding: 0;
             background-color: #f4f4f9;
             color: #333;
-            position: relative;
             overflow-x: hidden; /* Чтобы предотвратить горизонтальную прокрутку */
         }
         .top-banner {
@@ -29,7 +28,6 @@
         .top-banner span {
             font-size: 1.5em;
         }
-      
         .content {
             max-width: 900px;
             margin: 100px auto 20px auto; /* Добавлен верхний отступ для контента */
@@ -50,7 +48,8 @@
             margin-bottom: 20px;
         }
         .photo-gallery img {
-            width: 250px;
+            width: 100%;
+            max-width: 250px;
             height: auto;
             margin: 10px;
             border-radius: 10px;
@@ -117,8 +116,7 @@
             background-color: #000;
             color: white;
             text-align: center;
-            padding: 3px 0;
-            position: relative;
+            padding: 20px 0;
             width: 100%;
         }
         .footer-container {
@@ -126,7 +124,7 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 10px;
         }
@@ -135,11 +133,12 @@
             min-width: 200px;
         }
         .footer-title {
-            font-size: 1.0em;
+            font-size: 1.2em;
+            font-weight: bold;
             margin-bottom: 15px;
         }
         .footer-text {
-            font-size: 0.8em; /* Базовый размер шрифта для текста в футере */
+            font-size: 0.8em;
         }
         .footer-item p, .footer-item a {
             margin: 8px 0;
@@ -152,17 +151,13 @@
         .footer-item i {
             margin-right: 8px;
         }
-        .footer-item .footer-title {
-            font-size: 1.2em; /* Увеличиваем размер шрифта */
-            font-weight: bold; /* Делаем текст жирным */
-            margin-bottom: 15px;
-        }
         .footer-logo {
-            margin-top: 15px; /* Отступ сверху для логотипа */
+            text-align: center;
+            margin-top: 10px;
         }
         .footer-logo img {
-            width: 100px; /* Ширина логотипа */
-            height: auto; /* Автоматическая высота */
+            max-width: 100px;
+            height: auto;
         }
     </style>
 </head>
@@ -186,8 +181,8 @@
         </div>
         <div class="bio">
             <h2>Մեր մասին</h2>
-            <p>Ատամնատեխնիկական աշխատանքների Կատարում։
-            Ինթչպես նաև NFC-ով հագեցած այցեքարտերի պատրաստում։
+            <p>Ատամնատեխնիկական աշխատանքների կատարում։
+            Ինչպես նաև NFC-ով հագեցած այցեքարտերի պատրաստում։
             </p>
         </div>
         <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
@@ -231,32 +226,21 @@
     <div class="footer">
         <div class="footer-container">
             <div class="footer-item">
-                <div class="footer-title">Contact us</div>
-                <p class="footer-text"><i class="fab fa-instagram"></i>		Instagram:<ahref="https://www.instagram.com/artur_harutyunyan_94" 	target="_blank">@artur_harutyunyan_94</a></p>
-                <p class="footer-text"><i class="fas fa-envelope"></i>		Email: <a href="mailto:artur940617@gmail.com">artur940617		@gmail.com</a></p>
-                <p class="footer-text"><i class="fas fa-phone"></i>	Телефон: <a href="tel:+37477291214">+37477291214</a></p>
+                <div class="footer-title">Контакты</div>
+                <p class="footer-text"><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/artur_harutyunyan_94" target="_blank">@artur_harutyunyan_94</a></p>
+                <p class="footer-text"><i class="fas fa-envelope"></i> Email: <a href="mailto:artur940617@gmail.com">artur940617@gmail.com</a></p>
+                <p class="footer-text"><i class="fas fa-phone"></i> Телефон: <a href="tel:+37477291214">+37477291214</a></p>
             </div>
             <div class="footer-item">
-                <div class="footer-title">Company</div>
+                <div class="footer-title">Компания</div>
                 <p class="footer-text">© 2024 NFC Leap</p>
-                <div class="footer-logo">
-                    <img src="logo.png" alt="NFC Leap Logo">
-                </div>
+            </div>
+            <div class="footer-logo">
+                <img src="logo.png" alt="Logo">
             </div>
         </div>
     </div>
     <script>
-        window.onscroll = function() {scrollFunction()};
-
-        function scrollFunction() {
-            var header = document.getElementById("header");
-            if (window.pageYOffset > 80) {
-                header.style.left = "0";
-            } else {
-                header.style.left = "-300px";
-            }
-        }
-
         function openModal(src) {
             document.getElementById('modal').style.display = 'flex';
             document.getElementById('modal-img').src = src;
