@@ -306,7 +306,7 @@
         }
 
         function generateVCard() {
-            var fullName = top-banner;
+            var fullName = document.querySelector('.top-banner span').textContent.trim();
             var email = "artur940617@gmail.com";
             var phone = "+37477291214";
             var website = "https://nfcleap.com";
@@ -329,7 +329,7 @@
             var blob = new Blob([vCardData], { type: 'text/vcard' });
             var link = document.createElement('a');
             link.href = window.URL.createObjectURL(blob);
-            link.download = 'contact.vcf';
+            link.download = fullName +'.vcf';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
