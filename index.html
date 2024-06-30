@@ -231,6 +231,7 @@
             <h2>Կոնտակտներ</h2>
             <p><i class="fas fa-envelope"></i>Email: <a href="mailto:artur940617@gmail.com">artur940617@gmail.com</a></p>
             <p><i class="fas fa-phone"></i>Phone: <a href="tel:+37477291214">+37477291214</a></p>
+	    <p><i class="fab fa-facebook"></i>Facebook: <a href="https://www.facebook.com/artur940617" target="_blank">Artur Harutyunyan</a></p>
             <p><i class="fab fa-instagram"></i>Instagram: <a href="https://www.instagram.com/nfc_leap" target="_blank">NFC LEAP</a></p>
             <p><i class="fab fa-linkedin"></i>LinkedIn: <a href="https://www.linkedin.com/in/artur940617/" target="_blank">Artur Harutyunyan</a></p>
             <p><i class="fas fa-map-marker-alt"></i>Address: 32 Erebuni Street, Ереван, Армения</p>
@@ -310,19 +311,22 @@
             var email = "artur940617@gmail.com";
             var phone = "+37477291214";
             var website = "https://nfcleap.com";
-            var linkedin = "https://www.linkedin.com/in/example";
+            var linkedin = "https://www.linkedin.com/in/artur940617/";
             var instagram = "https://www.instagram.com/nfc_leap";
+	    var facebook = "https://www.facebook.com/artur940617"
             var address = "32 Erebuni Street, Ереван, Армения";
 
             var vCardData = 
                 'BEGIN:VCARD\n' +
                 'VERSION:3.0\n' +
+		'ORG:NFC LEAP\n +
                 'FN:' + fullName + '\n' +
                 'EMAIL:' + email + '\n' +
                 'TEL:' + phone + '\n' +
                 (website ? 'URL:' + website + '\n' : '') +
                 (linkedin ? 'URL:' + linkedin + '\n' : '') +
                 (instagram ? 'URL:' + instagram + '\n' : '') +
+		(facebook ? 'URL:' + facebook + '\n' : '') +
                 (address ? 'ADR:' + address + '\n' : '') +
                 'END:VCARD';
 
