@@ -131,8 +131,8 @@
         .footer-item {
             margin: 10px;
             min-width: 200px;
-	    flex: 1;
-	    text-align: center;
+            flex: 1;
+            text-align: center;
         }
         .footer-title {
             font-size: 1.2em;
@@ -161,15 +161,33 @@
             max-width: 100px;
             height: auto;
         }
-	@media (max-width: 600px) {
-    .footer-container {
-        flex-direction: column; /* Вертикальное расположение элементов на мобильных устройствах */
-        align-items: center; /* Центрируем элементы по горизонтали */
-    }
-    .footer-item {
-        margin: 10px 0; /* Увеличиваем вертикальные отступы между элементами */
-    }
-}
+        @media (max-width: 600px) {
+            .footer-container {
+                flex-direction: column; /* Вертикальное расположение элементов на мобильных устройствах */
+                align-items: center; /* Центрируем элементы по горизонтали */
+            }
+            .footer-item {
+                margin: 10px 0; /* Увеличиваем вертикальные отступы между элементами */
+            }
+        }
+        .vcard-button {
+            background-color: #3b5998;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px; /* Отступ сверху */
+            display: block;
+            width: 100%;
+            max-width: 250px;
+            margin: 20px auto;
+        }
+        .vcard-button:hover {
+            background-color: #2d4373;
+        }
     </style>
 </head>
 <body>
@@ -187,7 +205,7 @@
         <div class="contact-info">
             <h2>Կոնտակտներ</h2>
             <p><i class="fas fa-envelope"></i>Email: <a href="mailto:artur940617@gmail.com">artur940617@gmail.com</a></p>
-            <p><i class="fas fa-phone"></i>Phone: <a href="tel:+37477291214">+37477291214</a></p>
+            <p><i class="fas fa-phone"></i>Телефон: <a href="tel:+37477291214">+37477291214</a></p>
             <p><i class="fab fa-instagram"></i>Instagram: <a href="https://www.instagram.com/nfc_leap" target="_blank">NFC LEAP</a></p>
         </div>
         <div class="bio">
@@ -229,6 +247,7 @@
             </script>
             <a href="https://1map.com/ru/map-embed">1 Map</a>
         </div>
+        <button class="vcard-button" id="download-vcard">Скачать контакты</button>
     </div>
     <div id="modal" onclick="closeModal()">
         <img id="modal-img" src="" alt="Modal Image">
@@ -239,17 +258,15 @@
                 <div class="footer-title">Контакты</div>
                 <p class="footer-text"><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/nfc_leap" target="_blank">NFC LEAP</a></p>
                 <p class="footer-text"><i class="fas fa-envelope"></i> Email: <a href="mailto:artur940617@gmail.com">artur940617@gmail.com</a></p>
-                <p class="footer-text"><i class="fas fa-phone"></i> Phone: <a href="tel:+37477291214">+37477291214</a></p>
+                <p class="footer-text"><i class="fas fa-phone"></i> Телефон: <a href="tel:+37477291214">+37477291214</a></p>
             </div>
             <div class="footer-item">
                 <div class="footer-title">Компания</div>
-		<div class="footer-logo">
-                
-		<a href="https://artur940617.github.io/Visit_card/" target="_blank"><img src="logo.png" alt="Logo"></a></p>
+                <div class="footer-logo">
+                    <a href="https://artur940617.github.io/Visit_card/" target="_blank"><img src="logo.png" alt="Logo"></a>
+                </div>
+                <p class="footer-text">© 2024 NFC Leap</p>
             </div>
-                <p class="footer-text">© 2024 NFC Leap </p>
-            </div>
-            
         </div>
     </div>
     <script>
@@ -261,6 +278,26 @@
         function closeModal() {
             document.getElementById('modal').style.display = 'none';
         }
+
+        document.getElementById('download-vcard').addEventListener('click', function() {
+            var vCardData = 
+                'BEGIN:VCARD\n' +
+                'VERSION:3.0\n' +
+                'FN:Արթուր Հարությունյան\n' +
+                'EMAIL:artur940617@gmail.com\n' +
+                'TEL:+37477291214\n' +
+                'ORG:NFC Leap\n' +
+                'URL:https://www.instagram.com/nfc_leap\n' +
+                'END:VCARD';
+
+            var blob = new Blob([vCardData], { type: 'text/vcard' });
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = 'contact.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
     </script>
 </body>
 </html>
