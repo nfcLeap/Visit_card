@@ -171,23 +171,48 @@
             }
         }
         .vcard-button {
-            background-color: #3b5998;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 20px; /* Отступ сверху */
-            display: block;
-            width: 100%;
-            max-width: 250px;
-            margin: 20px auto;
-        }
-        .vcard-button:hover {
-            background-color: #2d4373;
-        }
+
+           
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin:20px auto;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.vcard-button:disabled {
+  pointer-events: none;
+}
+
+.vcard-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.vcard-button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
     </style>
 </head>
 <body>
@@ -205,13 +230,14 @@
         <div class="contact-info">
             <h2>Կոնտակտներ</h2>
             <p><i class="fas fa-envelope"></i>Email: <a href="mailto:artur940617@gmail.com">artur940617@gmail.com</a></p>
-            <p><i class="fas fa-phone"></i>Телефон: <a href="tel:+37477291214">+37477291214</a></p>
+            <p><i class="fas fa-phone"></i>Phone: <a href="tel:+37477291214">+37477291214</a></p>
             <p><i class="fab fa-instagram"></i>Instagram: <a href="https://www.instagram.com/nfc_leap" target="_blank">NFC LEAP</a></p>
+            <p><i class="fab fa-linkedin"></i>LinkedIn: <a href="https://www.linkedin.com/in/artur940617/" target="_blank">Artur Harutyunyan</a></p>
+            <p><i class="fas fa-map-marker-alt"></i>Address: 32 Erebuni Street, Ереван, Армения</p>
         </div>
         <div class="bio">
             <h2>Մեր մասին</h2>
-            <p> NFC-ով հագեցած այցեքարտերի պատրաստում։
-            </p>
+            <p> NFC-ով հագեցած այցեքարտերի պատրաստում։ </p>
         </div>
         <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
             <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
@@ -224,8 +250,8 @@
                         "satellite": false,
                         "zoom": 12,
                         "placeId": "ChIJ11aQp-27akARxYLRgNgVctY",
-                        "cid": "0xd67215d880d182c5",
-                        "coords": [40.1412026, 44.53001330000001],
+                        "cid": "0x6df97eb36dcb6063",
+                        "centerCoord": [40.1412026, 44.53001330000001],
                         "cityUrl": "/armenia/yerevan-19185",
                         "cityAnchorText": "Карта [CITY1], Yerevan, Армения",
                         "lang": "ru",
@@ -247,7 +273,7 @@
             </script>
             <a href="https://1map.com/ru/map-embed">1 Map</a>
         </div>
-        <button class="vcard-button" id="download-vcard">Скачать контакты</button>
+        <button class="vcard-button" id="download-vcard">Պահպանել Կոնտակտները</button>
     </div>
     <div id="modal" onclick="closeModal()">
         <img id="modal-img" src="" alt="Modal Image">
@@ -255,13 +281,13 @@
     <div class="footer">
         <div class="footer-container">
             <div class="footer-item">
-                <div class="footer-title">Контакты</div>
+                <div class="footer-title">Contact us</div>
                 <p class="footer-text"><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/nfc_leap" target="_blank">NFC LEAP</a></p>
                 <p class="footer-text"><i class="fas fa-envelope"></i> Email: <a href="mailto:artur940617@gmail.com">artur940617@gmail.com</a></p>
                 <p class="footer-text"><i class="fas fa-phone"></i> Телефон: <a href="tel:+37477291214">+37477291214</a></p>
             </div>
             <div class="footer-item">
-                <div class="footer-title">Компания</div>
+                <div class="footer-title">Company</div>
                 <div class="footer-logo">
                     <a href="https://artur940617.github.io/Visit_card/" target="_blank"><img src="logo.png" alt="Logo"></a>
                 </div>
@@ -279,15 +305,25 @@
             document.getElementById('modal').style.display = 'none';
         }
 
-        document.getElementById('download-vcard').addEventListener('click', function() {
+        function generateVCard() {
+            var fullName = top-banner;
+            var email = "artur940617@gmail.com";
+            var phone = "+37477291214";
+            var website = "https://nfcleap.com";
+            var linkedin = "https://www.linkedin.com/in/example";
+            var instagram = "https://www.instagram.com/nfc_leap";
+            var address = "32 Erebuni Street, Ереван, Армения";
+
             var vCardData = 
                 'BEGIN:VCARD\n' +
                 'VERSION:3.0\n' +
-                'FN:Արթուր Հարությունյան\n' +
-                'EMAIL:artur940617@gmail.com\n' +
-                'TEL:+37477291214\n' +
-                'ORG:NFC Leap\n' +
-                'URL:https://www.instagram.com/nfc_leap\n' +
+                'FN:' + fullName + '\n' +
+                'EMAIL:' + email + '\n' +
+                'TEL:' + phone + '\n' +
+                (website ? 'URL:' + website + '\n' : '') +
+                (linkedin ? 'URL:' + linkedin + '\n' : '') +
+                (instagram ? 'URL:' + instagram + '\n' : '') +
+                (address ? 'ADR:' + address + '\n' : '') +
                 'END:VCARD';
 
             var blob = new Blob([vCardData], { type: 'text/vcard' });
@@ -297,7 +333,9 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-        });
+        }
+
+        document.getElementById('download-vcard').addEventListener('click', generateVCard);
     </script>
 </body>
 </html>
