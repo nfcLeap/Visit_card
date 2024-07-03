@@ -370,6 +370,8 @@
 
         function generateVCard() {
             var fullName = document.querySelector('.top-banner span').textContent.trim();
+	    var lastName = 'Հարությունյան';
+	    var firstName = 'Արթուր';
             var email = "artur940617@gmail.com";
             var phone = "+37477291214";
             var website = "https://nfcleap.com";
@@ -382,8 +384,8 @@
                 'BEGIN:VCARD\n' +
                 'VERSION:3.0\n' +
                 'ORG:NFC LEAP\n' +
-		'N:Հարությունյան;Արթուր;;;\n'
                 'FN:' + fullName + '\n' +
+		'N:' + lastName + ';' + firstName + ';;;\n' +
                 'EMAIL:' + email + '\n' +
                 'TEL:' + phone + '\n' +
                 (website ? 'URL:' + website + '\n' : '') +
@@ -409,6 +411,7 @@
                 'BEGIN:VCARD\n' +
                 'VERSION:3.0\n' +
                 'ORG:NFC LEAP\n' +
+		'NAME:Artur\n'+
                 'FN:Արթուր Հարությունյան\n' +
                 'EMAIL:artur940617@gmail.com\n' +
                 'TEL:+37477291214\n' +
