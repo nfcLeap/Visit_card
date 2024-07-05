@@ -163,11 +163,11 @@
         }
         @media (max-width: 600px) {
             .footer-container {
-                flex-direction: column; /* Вертикальное расположение элементов на мобильных устройствах */
-                align-items: center; /* Центрируем элементы по горизонтали */
+                flex-direction: column; 
+                align-items: center; 
             }
             .footer-item {
-                margin: 10px 0; /* Увеличиваем вертикальные отступы между элементами */
+                margin: 10px 0; 
             }
         }
         .vcard-button, .qr-button, .share-button {
@@ -407,40 +407,37 @@
         document.getElementById('download-vcard').addEventListener('click', generateVCard);
 
         function generateQR() {
-            var vCardData = 
-                'BEGIN:VCARD\n' +
-                'VERSION:3.0\n' +
-                'ORG:NFC LEAP\n' +
-                'FN:Արթուր Հարությունյան\n' +
-		'N:' + lastName + ';' + firstName + ';;;\n' +
-                'EMAIL:artur940617@gmail.com\n' +
-                'TEL:+37477291214\n' +
-                'URL:https://nfcleap.com\n' +
-                'URL:https://www.linkedin.com/in/artur940617/\n' +
-                'URL:https://www.instagram.com/nfc_leap\n' +
-                'URL:https://www.facebook.com/artur940617\n' +
-                'ADR:32 Erebuni Street, Ереван, Армения\n' +
-                'END:VCARD';
+    	 var vCardData = 
+        'BEGIN:VCARD\n' +
+        'VERSION:3.0\n' +
+        'ORG:NFC LEAP\n' +
+        'FN:Արթուր Հարությունյան\n' +
+        'N:Հարությունյան;Արթուր;;;\n' +
+        'EMAIL:artur940617@gmail.com\n' +
+        'TEL:+37477291214\n' +
+        'URL:https://nfcleap.com\n' +
+        'URL:https://www.linkedin.com/in/artur940617/\n' +
+        'URL:https://www.instagram.com/nfc_leap\n' +
+        'URL:https://www.facebook.com/artur940617\n' +
+        'ADR:32 Erebuni Street, Ереван, Армения\n' +
+        'END:VCARD';
 
-            QRCode.toDataURL(vCardData, function (err, url) {
-                document.getElementById('qrcode').innerHTML = '<img src="' + url + '">';
-                document.getElementById('qr-modal').style.display = 'flex';
-            });
-        }
+    QRCode.toDataURL(vCardData, function (err, url) {
+        document.getElementById('qrcode').innerHTML = ''; 
+        var img = document.createElement('img');
+        img.src = url;
+        document.getElementById('qrcode').appendChild(img);
+        document.getElementById('qr-modal').style.display = 'flex';
+    });
+}
 
-        function closeQRModal() {
-            document.getElementById('qr-modal').style.display = 'none';
-        }
+function closeQRModal() {
+    document.getElementById('qr-modal').style.display = 'none';
+    document.getElementById('qrcode').innerHTML = '';
+}
 
-        function shareOnlink() {
-            var qrImageUrl = document.querySelector('#qrcode img').src;
-            var shareUrl =  encodeURIComponent(qrImageUrl);
-            window.open(shareUrl, '_blank');
-        }
+document.getElementById('generate-qr').addEventListener('click', generateQR);
 
-
-
-        document.getElementById('generate-qr').addEventListener('click', generateQR);
     </script>
 </body>
 </html>
