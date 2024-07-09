@@ -77,7 +77,7 @@
             font-size: 1.2em;
         }
         .contact-info a {
-            color: #333;
+            color: #fffff;
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -170,11 +170,11 @@
                 margin: 10px 0; 
             }
         }
-        .vcard-button, .qr-button, .share-button {
+       	 .vcard-button, .qr-button, .contact-button{
             appearance: none;
             background-color: #000000;
             border: 2px solid #1A1A1A;
-            border-radius: 15px;
+            border-radius: 18px;
             box-sizing: border-box;
             color: #FFFFFF;
             cursor: pointer;
@@ -183,7 +183,7 @@
             font-size: 16px;
             font-weight: 600;
             line-height: normal;
-            margin: 20px auto;
+            margin: 8px auto;
             min-height: 60px;
             min-width: 0;
             outline: none;
@@ -198,16 +198,16 @@
             will-change: transform;
         }
 
-        .vcard-button:disabled, .qr-button:disabled, .share-button:disabled {
+        .vcard-button:disabled, .qr-button:disabled, .contact-button:disabled {
             pointer-events: none;
         }
 
-        .vcard-button:hover, .qr-button:hover, .share-button:hover {
-            box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        .vcard-button:hover, .qr-button:hover, .contact-button:hover  {
+            box-shadow: rgba(0, 0, 0, 0.25) 0 8px 60px;
             transform: translateY(-2px);
         }
 
-        .vcard-button:active, .qr-button:active, .share-button:active {
+        .vcard-button:active, .qr-button:active, .contact-button:active {
             box-shadow: none;
             transform: translateY(0);
         }
@@ -237,32 +237,8 @@
             margin: 20px 0;
         }
 
-        .share-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
+      
 
-        .share-buttons a {
-            display: inline-block;
-            padding: 10px;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-        }
-
-        .share-facebook {
-            background-color: #3b5998;
-        }
-
-        .share-twitter {
-            background-color: #1da1f2;
-        }
-
-        .share-linkedin {
-            background-color: #0077b5;
-        }
     </style>
 </head>
 <body>
@@ -275,17 +251,17 @@
             <img src="photo1.jpg" alt="Photo 1" onclick="openModal(this.src)">
             <img src="photo2.jpg" alt="Photo 2" onclick="openModal(this.src)">
             <img src="photo3.jpg" alt="Photo 3" onclick="openModal(this.src)">
-            <img src="photo4.jpg" alt="Photo 4" onclick="openModal(this.src)">
+            
         </div>
         <div class="contact-info">
             <h2>Կոնտակտներ</h2>
             
-            <p><i class="fas fa-envelope"></i><a href="mailto:artur940617@gmail.com">Email</a></p>
-            <p><i class="fas fa-phone"></i><a href="tel:+37477291214">Phone</a></p>
-            <p><i class="fab fa-telegram"></i><a href="https://t.me/artur940617" target="_blank">Telegram</a></p>
-            <p><i class="fab fa-facebook"></i><a href="https://www.facebook.com/artur940617" target="_blank">Facebook</a></p>
-	    <p><i class="fab fa-instagram"></i><a href="https://www.instagram.com/nfc_leap" target="_blank">Instagram</a></p>
-            <p><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/artur940617/" target="_blank">LinkedIn</a></p>
+            <p><a class="contact-button" href="mailto:artur940617@gmail.com"><i  class="fas fa-envelope"></i>Email</a></p>
+            <p><a class="contact-button" href="tel:+37477291214"><i class="fas fa-phone"></i>Phone</a></p>
+	    <p><a class="contact-button" href="https://t.me/artur940617" target="_blank"><i class="fab fa-telegram"></i>Telegram</a></p>
+            <p><a class="contact-button" href="https://www.facebook.com/artur940617" target="_blank"><i class="fab fa-facebook"></i>Facebook</a></p>
+	    <p><a class="contact-button" href="https://www.instagram.com/nfc_leap" target="_blank" ><i class="fab fa-instagram"></i>Instagram</a></p>
+            <p><a class="contact-button" href="https://www.linkedin.com/in/artur940617/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a></p>
             <p><i class="fas fa-map-marker-alt"></i>Address: 32 Erebuni Street, Ереван, Армения</p>
         </div>
         <div class="bio">
@@ -347,7 +323,7 @@
                 <div class="footer-title">Contact us</div>
                 <p class="footer-text"><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/nfc_leap" target="_blank">NFC LEAP</a></p>
                 <p class="footer-text"><i class="fas fa-envelope"></i> Email: <a href="mailto:artur940617@gmail.com">artur940617@gmail.com</a></p>
-                <p class="footer-text"><i class="fas fa-phone"></i> Телефон: <a href="tel:+37477291214">+37477291214</a></p>
+                <p class="footer-text"><i class="fas fa-phone"></i> Phone: <a href="tel:+37477291214">+37477291214</a></p>
             </div>
             <div class="footer-item">
                 <div class="footer-title">Company</div>
@@ -375,7 +351,7 @@
 	    var firstName = 'Արթուր';
             var email = "artur940617@gmail.com";
             var phone = "+37477291214";
-            var telegram = "t.me/artur940617";
+	    var telegram = "t.me/artur940617"
             var website = "https://nfcleap.com";
             var linkedin = "https://www.linkedin.com/in/artur940617/";
             var instagram = "https://www.instagram.com/nfc_leap";
@@ -390,7 +366,7 @@
 		'N:' + lastName + ';' + firstName + ';;;\n' +
                 'EMAIL:' + email + '\n' +
                 'TEL:' + phone + '\n' +
-                (telegram ? 'URL:' + telegram + '\n' : '') +
+		(telegram ? 'URL:' + telegram + '\n' : '') +
                 (website ? 'URL:' + website + '\n' : '') +
                 (linkedin ? 'URL:' + linkedin + '\n' : '') +
                 (instagram ? 'URL:' + instagram + '\n' : '') +
@@ -418,7 +394,6 @@
         'N:Հարությունյան;Արթուր;;;\n' +
         'EMAIL:artur940617@gmail.com\n' +
         'TEL:+37477291214\n' +
-	'URL:https://t.me/artur940617\n' +
         'URL:https://nfcleap.com\n' +
         'URL:https://www.linkedin.com/in/artur940617/\n' +
         'URL:https://www.instagram.com/nfc_leap\n' +
@@ -437,7 +412,7 @@
 
 function closeQRModal() {
     document.getElementById('qr-modal').style.display = 'none';
-    document.getElementById('qrcode').innerHTML = '';
+    document.getElementById('qrcode').innerHTML = ''; // Clear QR code when closing modal
 }
 
 document.getElementById('generate-qr').addEventListener('click', generateQR);
