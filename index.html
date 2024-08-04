@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{user_page.first_name}} Visit card</title>
+    <title>Artur Visit card</title>
     <link rel="icon" href="/static/img/icon/favicon-16x16.png" sizes="16x16" type="image/png">
     <link rel="icon" href="/static/img/icon/favicon-32x32.png" sizes="32x32" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
@@ -378,9 +378,9 @@
         <div class="profile_photo">
             <img src="{{ user_page.profile_photo.url}}">
         </div>
-        <span>{{ user_page.first_name }} {{ user_page.last_name }}
+        <span>Artur Harutyunyan
             <br>{% if user_page.company_or_occupation %}
-            {{ user_page.company_or_occupation }}{% endif %}
+            NFC LEAP{% endif %}
         </span> <!-- Имя пользователя -->
     </div>
 
@@ -409,32 +409,28 @@
         <div class="contact-info">
     <h2>Կոնտակտներ</h2>
     {% if user_page.email %}
-        <p><a class="contact-button" href="mailto:{{ user_page.email }}"><i class="fas fa-envelope"></i>Email</a></p>
+        <p><a class="contact-button" href="mailto:artur940617@gmail.com"><i class="fas fa-envelope"></i>Email</a></p>
     {% endif %}
     {% if user_page.phone_number %}
-        <p><a class="contact-button" href="tel:{{ user_page.phone_number }}"><i class="fas fa-phone"></i>Phone</a></p>
+        <p><a class="contact-button" href="tel:+37477291214"><i class="fas fa-phone"></i>Phone</a></p>
     {% endif %}
     {% if user_page.telegram_link %}
-        <p><a class="contact-button" href="{{ user_page.telegram_link }}" target="_blank"><i class="fab fa-telegram"></i>Telegram</a></p>
+        <p><a class="contact-button" href="https://t.me/artur940617" target="_blank"><i class="fab fa-telegram"></i>Telegram</a></p>
     {% endif %}
     {% if user_page.facebook_link %}
-        <p><a class="contact-button" href="{{ user_page.facebook_link }}" target="_blank"><i class="fab fa-facebook"></i>Facebook</a></p>
+        <p><a class="contact-button" href="https://facebook.com/artur940617" target="_blank"><i class="fab fa-facebook"></i>Facebook</a></p>
     {% endif %}
     {% if user_page.instagram_link %}
-        <p><a class="contact-button" href="{{ user_page.instagram_link }}" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></p>
+        <p><a class="contact-button" href="https://artur_harutyunyan_94" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></p>
     {% endif %}
     {% if user_page.tiktok_link %}
         <p><a class="contact-button" href="{{ user_page.tiktok_link }}" target="_blank"><i class="fab fa-tiktok"></i>Tiktok</a></p>
     {% endif %}
     {% if user_page.linkedin_link %}
-        <p><a class="contact-button" href="{{ user_page.linkedin_link }}" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a></p>
+        <p><a class="contact-button" href="https://linkedin.com/in/artur940617/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a></p>
     {% endif %}
-    {% if user_page.x_link %}
-        <p><a class="contact-button" href="{{ user_page.x_link }}" target="_blank"><i class="fab fa-x"></i>X - Twitter</a></p>
-    {% endif %}
-    {% if user_page.web_link %}
-        <p><a class="contact-button" href="{{ user_page.web_link }}" target="_blank"><i class="fas fa-globe"></i>Website</a></p>
-    {% endif %}
+    
+    
 
 </div>
 
