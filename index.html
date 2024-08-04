@@ -7,40 +7,67 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-            overflow-x: hidden; /* Чтобы предотвратить горизонтальную прокрутку */
+          /* ваш CSS код здесь */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         .top-banner {
             background-color: #000000;
             color: white;
             text-align: center;
-            padding: 30px 0;
+            padding: 15px 0;
             width: 100%;
             position: fixed;
             top: 0;
-            z-index: 1001; /* Увеличен z-index для верхнего баннера */
+            z-index: 1001;
+            border-bottom-left-radius: 130px;
+            border-bottom-right-radius: 130px;
+
         }
         .top-banner span {
             font-size: 1.5em;
         }
+        .profile_photo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .profile_photo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #FFD700;
+            object-fit: cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .profile_photo img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+
         .content {
             max-width: 900px;
-            margin: 100px auto 20px auto; /* Добавлен верхний отступ для контента */
-            padding: 20px;
+            margin: 100px auto 20px auto; /* Измените на: */
+            margin-top: 300px;
+
+            padding: 50px;
             background-color: white;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            border-radius: 90px;
             animation: fadeIn 1s ease-in-out;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+
         .photo-gallery {
             display: flex;
             justify-content: center;
@@ -98,6 +125,8 @@
             justify-content: center;
             align-items: center;
             animation: fadeIn 0.5s ease-in-out;
+            z-index: 1002; /* Убедитесь, что это значение больше, чем у вашего баннера */
+
         }
         #modal img {
             max-width: 90%;
@@ -108,9 +137,13 @@
             display: none;
         }
         #map {
-            height: 300px; /* Высота карты */
-            width: 100%; /* Ширина карты */
-            margin-bottom: 20px; /* Отступ снизу */
+            text-align: center;
+            padding: 1px;
+            box-shadow: rgba(0, 0, 0, 0.30) 0px 18px 50px 1px;
+            height: 100px;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 38px
         }
         .footer {
             background-color: #000;
@@ -137,10 +170,10 @@
         .footer-title {
             font-size: 1.2em;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         .footer-text {
-            font-size: 0.8em;
+            font-size: 1em;
         }
         .footer-item p, .footer-item a {
             margin: 8px 0;
@@ -163,18 +196,19 @@
         }
         @media (max-width: 600px) {
             .footer-container {
-                flex-direction: column; 
-                align-items: center; 
+                flex-direction: column; /* Вертикальное расположение элементов на мобильных устройствах */
+                align-items: center; /* Центрируем элементы по горизонтали */
             }
             .footer-item {
-                margin: 10px 0; 
-            }
+                margin: 10px 0;             }
         }
-       	 .vcard-button, .qr-button, .contact-button{
+
+
+        .contact-button {
             appearance: none;
             background-color: #000000;
             border: 2px solid #1A1A1A;
-            border-radius: 18px;
+            border-radius: 15px;
             box-sizing: border-box;
             color: #FFFFFF;
             cursor: pointer;
@@ -183,8 +217,8 @@
             font-size: 16px;
             font-weight: 600;
             line-height: normal;
-            margin: 8px auto;
-            min-height: 60px;
+            margin: 20px auto;
+            min-height: 50px;
             min-width: 0;
             outline: none;
             padding: 16px 24px;
@@ -198,18 +232,95 @@
             will-change: transform;
         }
 
-        .vcard-button:disabled, .qr-button:disabled, .contact-button:disabled {
-            pointer-events: none;
-        }
 
-        .vcard-button:hover, .qr-button:hover, .contact-button:hover  {
-            box-shadow: rgba(0, 0, 0, 0.25) 0 8px 60px;
-            transform: translateY(-2px);
-        }
 
-        .vcard-button:active, .qr-button:active, .contact-button:active {
-            box-shadow: none;
-            transform: translateY(0);
+        .vcard-button, .qr-button, .cv-button {
+      appearance: none;
+      background-color: #000000;
+      border: 2px solid #1A1A1A;
+      border-radius: 15px;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      margin-top: 20px;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: normal;
+      margin: 20px auto;
+      min-height: 60px;
+      min-width: 0;
+      outline: none;
+      padding: 16px 24px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      width: 100%;
+      will-change: transform;
+      position: relative;
+      z-index: 0;
+
+      }
+
+    .vcard-button:before, .qr-button:before, .cv-button:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+     position: absolute;
+     top: -2px;
+     left: -2px;
+     background-size: 400%;
+     z-index: -1;
+     filter: blur(5px);
+     -webkit-filter: blur(5px);
+     width: calc(100% + 4px);
+     height: calc(100% + 4px);
+     animation: glowing-button 20s linear infinite;
+     transition: opacity 0.3s ease-in-out;
+     border-radius: 10px;
+     }
+
+    @keyframes glowing-button {
+    0% {
+        background-position: 0 0;
+     }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+        }
+    }
+
+    .vcard-button:after, .qr-button:after, .cv-button:after {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #222;
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+    }
+        .vcard-button:hover, .qr-button:hover, .cv-button:hover {
+        background-color: #333;
+        color: #f0f0f0;
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         #qr-modal {
@@ -236,6 +347,24 @@
         #qrcode {
             margin: 20px 0;
         }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .share-buttons a {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+        }
+
+
+
 
       
 
