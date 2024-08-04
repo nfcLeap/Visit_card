@@ -372,113 +372,82 @@
 
 
     </style>
+
 </head>
+
 <body>
     <div class="top-banner">
         <div class="profile_photo">
-            <img src="{{ user_page.profile_photo.url}}">
+            
+            <img src="profile.jpg" alt="profile-photo">
         </div>
         <span>Artur Harutyunyan
-            <br>{% if user_page.company_or_occupation %}
-            NFC LEAP{% endif %}
+            <br>NFC LEAP
         </span> <!-- Имя пользователя -->
     </div>
 
 
-
-
-
-        <div class="content">
-            {% if user_page.description or user_page.descript_photo %}
+	<div class="content">
             <div class="bio">
                 <h2>Նկարագրություն</h2>
-                {% if user_page.description %}
-                <p>{{ user_page.description }}</p>
-                {% endif %}
+                
+                <p>NFC Վեբ այցեքարտեր </p>
+                
         </div>
 
         <div class="photo-gallery">
-            {% if user_page.descript_photo %}
-            <img src="{{user_page.descript_photo.url}}" alt="Photo 1" onclick="openModal(this.src)">
-            {% endif %}
+            
+            <img src="photo1.jpg" alt="Photo 1" onclick="openModal(this.src)">
+            
 
         </div>
-        {% endif %}
 
+	<div class="contact-info">
 
-        <div class="contact-info">
-    <h2>Կոնտակտներ</h2>
-    {% if user_page.email %}
-        <p><a class="contact-button" href="mailto:artur940617@gmail.com"><i class="fas fa-envelope"></i>Email</a></p>
-    {% endif %}
-    {% if user_page.phone_number %}
-        <p><a class="contact-button" href="tel:+37477291214"><i class="fas fa-phone"></i>Phone</a></p>
-    {% endif %}
-    {% if user_page.telegram_link %}
-        <p><a class="contact-button" href="https://t.me/artur940617" target="_blank"><i class="fab fa-telegram"></i>Telegram</a></p>
-    {% endif %}
-    {% if user_page.facebook_link %}
-        <p><a class="contact-button" href="https://facebook.com/artur940617" target="_blank"><i class="fab fa-facebook"></i>Facebook</a></p>
-    {% endif %}
-    {% if user_page.instagram_link %}
-        <p><a class="contact-button" href="https://artur_harutyunyan_94" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></p>
-    {% endif %}
-    {% if user_page.tiktok_link %}
-        <p><a class="contact-button" href="{{ user_page.tiktok_link }}" target="_blank"><i class="fab fa-tiktok"></i>Tiktok</a></p>
-    {% endif %}
-    {% if user_page.linkedin_link %}
-        <p><a class="contact-button" href="https://linkedin.com/in/artur940617/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a></p>
-    {% endif %}
-    
-    
+            <h2>Կոնտակտներ</h2>
+            
+            <p><a class="contact-button" href="mailto:artur940617@gmail.com"><i  class="fas fa-envelope"></i>Email</a></p>
+            <p><a class="contact-button" href="tel:+37477291214"><i class="fas fa-phone"></i>Phone</a></p>
+	    <p><a class="contact-button" href="https://t.me/artur940617" target="_blank"><i class="fab fa-telegram"></i>Telegram</a></p>
+            <p><a class="contact-button" href="https://www.facebook.com/artur940617" target="_blank"><i class="fab fa-facebook"></i>Facebook</a></p>
+	    <p><a class="contact-button" href="https://www.instagram.com/nfc_leap" target="_blank" ><i class="fab fa-instagram"></i>Instagram</a></p>
+            <p><a class="contact-button" href="https://www.linkedin.com/in/artur940617/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a></p>
+            <p><i class="fas fa-map-marker-alt"></i>Address: 32 Erebuni Street, Ереван, Армения</p>
+        </div>
+                <div id="map">
 
-</div>
-
-        {% if user_page.address %}
-        <div id="map">
-
-        <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query={{ user_page.address }}" target="_blank">{{ user_page.address }}</a></p>
-            <!-- карта -->
-<!--            <="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q={{ user_page.address }}" allowfullscreen>-->
+        <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Armenia, Yerevan, Erebuni 32/4" target="_blank">Armenia, Yerevan, Erebuni 32/4</a></p>
+            
          </div>
-            {% endif %}
-    <button class="vcard-button" id="download-vcard">Պահպանել Կոնտակտները</button>
-    <button class="qr-button" id="generate-qr">Ստեղծել QR</button>
-    {% if user_page.cv %}
-        <p><a class="cv-button" href="{{ user_page.cv.url }}" id="download-cv" download>CV</a></p>
-    {% endif %}
-</div>
-
+                        
+                   
+        <button class="vcard-button" id="download-vcard">Պահպանել Կոնտակտները</button>
+        <button class="qr-button" id="generate-qr">Ստեղծել QR</button>
+    </div>
     <div id="modal" onclick="closeModal()">
         <img id="modal-img" src="" alt="Modal Image">
     </div>
-
-    <div id="qr-modal" onclick="closeQRModal()">
-        <div class="qr-content">
-            <div id="qrcode"></div>
-        </div>
+    
+<div id="qr-modal" onclick="closeQRModal()">
+    <div class="qr-content">
+        <div id="qrcode"></div>
+        
     </div>
+</div>
 
+    </div>
     <div class="footer">
         <div class="footer-container">
             <div class="footer-item">
                 <div class="footer-title">Contact us</div>
-                <p class="footer-text"><i class="fab fa-instagram"></i>  <a href= "https://instagram.com/nfc_leap/" target="_blank"> Instagram </a></p>
-                <p class="footer-text"><i class="fab fa-telegram"></i>  <a href="https://t.me/nfcleap" target="_blank"> Telegram </a></p>
-                <p class="footer-text"><i class="fas fa-envelope"></i> <a href="mailto:artur940617@gmail.com" target="_blank"> Email </a></p>
+                <p class="footer-text"><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/nfc_leap" target="_blank">NFC LEAP</a></p>
+                <p class="footer-text"><i class="fas fa-envelope"></i> Email: <a href="mailto:artur940617@gmail.com">artur940617@gmail.com</a></p>
+                <p class="footer-text"><i class="fas fa-phone"></i> Phone: <a href="tel:+37477291214">+37477291214</a></p>
             </div>
             <div class="footer-item">
                 <div class="footer-title">Company</div>
                 <div class="footer-logo">
-                    <a href= https://www.nfcleap.com target="_blank">
-                        <img src="/static/img/logo.png" alt="Logo" class="logo">
-                    </a>
-                    <style>
-                        .logo {
-                            width: 50px; /* Установите нужную ширину */
-                            height: auto; /* Сохранение пропорций */
-                                }
-                    </style>
+                    <a href="https://artur940617.github.io/Visit_card/" target="_blank"><img src="logo.png" alt="Logo"></a>
                 </div>
                 <p class="footer-text">© 2024</p>
             </div>
@@ -486,11 +455,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
     <script>
-
-
-
-
-          function openModal(src) {
+        function openModal(src) {
             document.getElementById('modal').style.display = 'flex';
             document.getElementById('modal-img').src = src;
         }
@@ -500,43 +465,39 @@
         }
 
         function generateVCard() {
-             // Отладочное сообщение
-            var fullName = "{{ user_page.first_name }} {{ user_page.last_name }}";
-            var email = "{{ user_page.email }}";
-            var phone = "{{ user_page.phone_number }}";
-            var telegram = "{{ user_page.telegram_link }}";
-            var web = "{{ user_page.web_link }}";
-            var linkedin = "{{ user_page.linkedin_link }}";
-            var x = "{{ user_page.x_link }}";
-            var tiktok = "{{ user_page.tiktok_link }}";
-            var instagram = "{{ user_page.instagram_link }}";
-            var facebook = "{{ user_page.facebook_link }}";
-            var address = "{{ user_page.address }}";
-            var comp = "{{ user_page.company_or_occupation }}";
+            var fullName = document.querySelector('.top-banner span').textContent.trim();
+	        var lastName = 'Հարությունյան';
+	        var firstName = 'Արթուր';
+	        var company = 'NFC LEAP'
+            var email = "artur940617@gmail.com";
+            var phone = "+37477291214";
+	        var telegram = "t.me/artur940617"
+            var website = "https://nfcleap.com";
+            var linkedin = "https://www.linkedin.com/in/artur940617/";
+            var instagram = "https://www.instagram.com/nfc_leap";
+            var facebook = "https://www.facebook.com/artur940617";
+            var address = "32 Erebuni Street, Ереван, Армения";
 
-            var vCardData =
+            var vCardData = 
                 'BEGIN:VCARD\n' +
                 'VERSION:3.0\n' +
-                'ORG:' + comp + '\n' +
+                'ORG:' + company + '\n' +
                 'FN:' + fullName + '\n' +
+		        'N:' + lastName + ';' + firstName + ';;;\n' +
                 'EMAIL:' + email + '\n' +
                 'TEL:' + phone + '\n' +
-                (telegram ? 'URL:' + telegram + '\n' : '') +
-                (web ? 'URL:' + web + '\n' : '') +
+		        (telegram ? 'URL:' + telegram + '\n' : '') +
+                (website ? 'URL:' + website + '\n' : '') +
                 (linkedin ? 'URL:' + linkedin + '\n' : '') +
-                (x ? 'URL:' + x + '\n' : '') +
                 (instagram ? 'URL:' + instagram + '\n' : '') +
-                (tiktok ? 'URL:' + tiktok + '\n' : '') +
                 (facebook ? 'URL:' + facebook + '\n' : '') +
-                'ADR:' + address + '\n' +
+                (address ? 'ADR:' + address + '\n' : '') +
                 'END:VCARD';
-
-            console.log("vCard Data: ", vCardData); // Отладочное сообщение
 
             var blob = new Blob([vCardData], { type: 'text/vcard' });
             var link = document.createElement('a');
             link.href = window.URL.createObjectURL(blob);
-            link.download = fullName + '.vcf';
+            link.download = fullName +'.vcf';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -545,65 +506,37 @@
         document.getElementById('download-vcard').addEventListener('click', generateVCard);
 
         function generateQR() {
-    console.log("generateQR called"); // Отладочное сообщение
-    var vCardData =
+    	 var vCardData = 
         'BEGIN:VCARD\n' +
         'VERSION:3.0\n' +
-        'ORG:' + "{{ user_page.company_or_occupation }}" + '\n' +
-        'FN:' + "{{ user_page.first_name }} {{ user_page.last_name }}" + '\n' +
-        'EMAIL:' + "{{ user_page.email }}" + '\n' +
-        'TEL:' + "{{ user_page.phone_number }}" + '\n';
+        'ORG:NFC LEAP\n' +
+        'FN:Արթուր Հարությունյան\n' +
+        'N:Հարությունյան;Արթուր;;;\n' +
+        'EMAIL:artur940617@gmail.com\n' +
+        'TEL:+37477291214\n' +
+        'URL:https://nfcleap.com\n' +
+        'URL:https://www.linkedin.com/in/artur940617/\n' +
+        'URL:https://www.instagram.com/nfc_leap\n' +
+        'URL:https://www.facebook.com/artur940617\n' +
+        'ADR:32 Erebuni Street, Ереван, Армения\n' +
+        'END:VCARD';
 
-    if ("{{ user_page.telegram_link }}") {
-        vCardData += 'URL:' + "{{ user_page.telegram_link }}" + '\n';
-    }
-    if ("{{ user_page.website_link }}") {
-        vCardData += 'URL:' + "{{ user_page.website_link }}" + '\n';
-    }
-    if ("{{ user_page.linkedin_link }}") {
-        vCardData += 'URL:' + "{{ user_page.linkedin_link }}" + '\n';
-    }
-    if ("{{ user_page.x_link }}") {
-        vCardData += 'URL:' + "{{ user_page.x_link }}" + '\n';
-    }
-    if ("{{ user_page.instagram_link }}") {
-        vCardData += 'URL:' + "{{ user_page.instagram_link }}" + '\n';
-    }
-    if ("{{ user_page.tiktok_link }}") {
-        vCardData += 'URL:' + "{{ user_page.tiktok_link }}" + '\n';
-    }
-    if ("{{ user_page.facebook_link }}") {
-        vCardData += 'URL:' + "{{ user_page.facebook_link }}" + '\n';
-    }
-    if ("{{ user_page.web_link }}") {
-        vCardData += 'URL:' + "{{ user_page.web_link }}" + '\n';
-    }
+    QRCode.toDataURL(vCardData, function (err, url) {
+        document.getElementById('qrcode').innerHTML = ''; 
+        var img = document.createElement('img');
+        img.src = url;
+        document.getElementById('qrcode').appendChild(img);
+        document.getElementById('qr-modal').style.display = 'flex';
+    });
+}
 
-    vCardData += 'ADR:' + "{{ user_page.address }}" + '\n' +
-                 'END:VCARD';
+function closeQRModal() {
+    document.getElementById('qr-modal').style.display = 'none';
+    document.getElementById('qrcode').innerHTML = ''; // Clear QR code when closing modal
+}
 
+document.getElementById('generate-qr').addEventListener('click', generateQR);
 
-
-            QRCode.toDataURL(vCardData, function (err, url) {
-                if (err) {
-                    console.error("QR Code generation error: ", err);
-                    return;
-                }
-                document.getElementById('qrcode').innerHTML = '';
-                var img = document.createElement('img');
-                img.src = url;
-                document.getElementById('qrcode').appendChild(img);
-                document.getElementById('qr-modal').style.display = 'flex';
-            });
-        }
-
-        function closeQRModal() {
-            document.getElementById('qr-modal').style.display = 'none';
-            document.getElementById('qrcode').innerHTML = '';
-        }
-
-        document.getElementById('generate-qr').addEventListener('click', generateQR);
     </script>
-
 </body>
 </html>
